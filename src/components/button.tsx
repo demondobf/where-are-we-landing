@@ -4,7 +4,7 @@ interface Props {
 
 export function Button({ text }: Props) {
   return (
-    <button className="bg-blue-2 border-blue-3 text-xl border-6 text-white font-bold px-7 py-3.5 leading-none">
+    <button className="border-6 border-blue-3 bg-blue-2 px-7 py-3.5 text-xl font-bold leading-none text-white">
       {text}
     </button>
   );
