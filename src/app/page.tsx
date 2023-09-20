@@ -1,24 +1,21 @@
 import { Logo } from "@/components/logo";
 import { SpotsList } from "@/components/spots-list";
 import { Button } from "@/components/button";
+import { LOCATIONS } from "@/constants/locations";
 
-const TEMP = [
-  { id: "01", text: "Mega City" },
-  { id: "02", text: "Frenzy Fields" },
-  { id: "03", text: "Steamy Springs" },
-  { id: "04", text: "Shattered Slabs" },
-  { id: "05", text: "Breakwater Bay" },
-  { id: "06", text: "Shady Stilts" },
-  { id: "07", text: "Relentless Retreat" },
-  { id: "08", text: "Creeky Compound" },
-];
+const MAPLIST = LOCATIONS.map((location, index) => {
+  return {
+    id: (index + 1).toString().padStart(2, "0"),
+    text: location,
+  };
+});
 
 export default function Home() {
   return (
     <main>
       <div className="bg-gradient-radial from-blue-2 to-blue-1 p-4 text-white">
         <Logo />
-        <SpotsList items={TEMP} currentItemIndex={0} />
+        <SpotsList items={MAPLIST} currentItemIndex={0} />
         <div className="mt-1 grid grid-cols-2 gap-1">
           <Button text="Previous" />
           <Button text="Next" />
