@@ -1,0 +1,17 @@
+export const LOCATIONS = [
+  "Breakwater Bay",
+  "Brutal Bastion",
+  "Creeky Compound",
+  "Eclipsed Estate",
+  "Frenzy Fields",
+  "Kenjutsu Crossing",
+  "Knotty Nets",
+  "MEGA City",
+  "Relentless Retreat",
+  "Rumble Ruins",
+  "Sanguine Suites",
+  "Shady Stilts",
+  "Shattered Slabs",
+  "Slappy Shores",
+  "Steamy Springs",
+];
