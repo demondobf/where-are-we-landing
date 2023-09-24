@@ -15,11 +15,11 @@ const MAPLIST = LOCATIONS.map((location, index) => {
 export default function Home() {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
-  function increment() {
+  function incrementItemIndex() {
     setCurrentItemIndex((a) => a + 1);
   }
 
-  function decrement() {
+  function decrementItemIndex() {
     setCurrentItemIndex((a) => a - 1);
   }
 
@@ -29,8 +29,8 @@ export default function Home() {
         <Logo />
         <SpotsList items={MAPLIST} currentItemIndex={currentItemIndex} />
         <div className="mt-1 grid grid-cols-2 gap-1">
-          <Button text="Previous" onClick={decrement} />
-          <Button text="Next" onClick={increment} />
+          <Button text="Previous" onClick={decrementItemIndex} />
+          <Button text="Next" onClick={incrementItemIndex} />
         </div>
         <div className="mb-5 mt-16 grid grid-rows-1">
           <p className="mb-2">
