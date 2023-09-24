@@ -1,24 +1,28 @@
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/button";
-import dynamic from "next/dynamic";
+import { SpotsList } from "@/components/spots-list";
+import { getRandomLocations } from "@/helpers/locations";
 
-const LazySpotsListWrapper = dynamic(
-  () => import("@/components/spots-list-wrapper"),
-  {
-    ssr: false,
-  },
-);
+interface Props {
+  params: {
+    seed: string;
+  };
+}
 
-export default function Page({ params }: { params: { seed: string } }) {
+export default function Page({ params }: Props) {
+  const seed = params.seed;
+
   return (
     <main>
       <div className="bg-gradient-radial from-blue-2 to-blue-1 p-4 text-white">
         <Logo />
-        <LazySpotsListWrapper seed={params.seed} />
+        <SpotsList items={getRandomLocations(seed)} currentItemIndex={0} />
+
         <div className="mt-1 grid grid-cols-2 gap-1">
           <Button text="Previous" />
           <Button text="Next" />
         </div>
+
         <div className="mb-5 mt-16 grid grid-rows-1">
           <p className="mb-2">
             You&#39;re a bambik and those locations don&#39;t fit you?
