@@ -1,7 +1,9 @@
+"use client";
 import { Logo } from "@/components/logo";
 import { SpotsList } from "@/components/spots-list";
 import { Button } from "@/components/button";
 import { LOCATIONS } from "@/constants/locations";
+import { useState } from "react";
 
 const MAPLIST = LOCATIONS.map((location, index) => {
   return {
@@ -11,14 +13,24 @@ const MAPLIST = LOCATIONS.map((location, index) => {
 });
 
 export default function Home() {
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
+
+  function incrementItemIndex() {
+    setCurrentItemIndex((a) => a + 1);
+  }
+
+  function decrementItemIndex() {
+    setCurrentItemIndex((a) => a - 1);
+  }
+
   return (
     <main>
       <div className="bg-gradient-radial from-blue-2 to-blue-1 p-4 text-white">
         <Logo />
-        <SpotsList items={MAPLIST} currentItemIndex={0} />
+        <SpotsList items={MAPLIST} currentItemIndex={currentItemIndex} />
         <div className="mt-1 grid grid-cols-2 gap-1">
-          <Button text="Previous" />
-          <Button text="Next" />
+          <Button text="Previous" onClick={decrementItemIndex} />
+          <Button text="Next" onClick={incrementItemIndex} />
         </div>
         <div className="mb-5 mt-16 grid grid-rows-1">
           <p className="mb-2">
